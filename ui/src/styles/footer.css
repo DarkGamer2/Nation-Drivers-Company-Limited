@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;700&family=Poppins&family=Russo+One&display=swap');
+
+footer {
+    box-shadow: 0 50vh 0 50vh orange;
+}
+
+.row{
+    width: 85%;
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.col{
+     flex-basis: 25%;
+    padding: 10px;
+}
+
+.col:nth-child(2), .col:nth-child(3){
+    flex-basis: 15%;
+}
+
+.col h1{
+    width:fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.reserved{
+    text-align: center!important;
+}
+
+.footer-container{
+    position: sticky;
+    background:linear-gradient(to right,navy,orange)
+}
+
+.underline{
+ width: 100%;
+    height: 5px;
+    background: #767676;
+    border-radius: 3px;
+    position: absolute;
+    top:25px;
+    left: 0;
+    overflow: hidden;
+}
+
+.underline span{
+ width:15px;
+    height:100%;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top:0;
+    left:10px;
+    animation: moving 2s linear infinite;
+}
+
+@keyframes moving{
+    0%{
+        left:-20px;
+    }
+    100%{
+        left:100%;
+    }
+}
+
+.footer-title{
+    font-size: 15px;
+    font-weight: bold;
+    color:white;
+}
+
+.footer-content{
+    font-size: 14px;
+    color:white;
+}
+
+.contact-container{
+    width: 200px;
+}
+
+.location{
+    color:white;
+}
+
+.instructor-container{
+    width:200px;
+}
+
+.link{
+    text-decoration: none;
+    color:white;
+}
+
+.numbers-container{
+    width:200px;
+}
+
+.row{
+    height: 100%;
+}

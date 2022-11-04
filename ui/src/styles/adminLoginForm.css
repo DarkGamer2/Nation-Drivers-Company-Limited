@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;700&family=Poppins&family=Russo+One&display=swap');
+
+label{
+    text-align: center;
+}
+
+.button-container{
+    text-align: center;
+}
+
+.submit-button{
+    /* background-color: red; */
+    color:white;
+    border:none;
+    border-radius: 7px;
+    padding: 10px;
+    width: 200px;
+}
+
+input{
+    background-color: whitesmoke;
+    border:none;
+    border-radius: 5px;
+    width: 200px;
+    margin-bottom: 10px;
+    display: block;
+    margin:0 auto;
+    padding:10px;
+}
