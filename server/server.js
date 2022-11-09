@@ -27,8 +27,9 @@ require("./auth/passportConfig")(passport);
 
 app.use(helmet());
 
+
 //ROUTES
-app.post('/api/signup',(req,res)=>{
+app.post('/api/signup',(req,res,next)=>{
 const student=new Student(req.body);
 
 student.save((err,data)=>{
@@ -36,37 +37,36 @@ student.save((err,data)=>{
     console.log(err.response.data);
   }
   else{
-    console.log(data);
-  }
-}).then(async (res)=>{
-   
-        let transporter=nodemailer.createTransport({
-            host: 'localhost',
-            port: 587,
-            secure: false,
-            auth: {
-                user: "nodejstester@gmail.com",
+    var transporter = nodemailer.createTransport({
+  service: 'outlook',
+  auth: {
+     user: "nodejstester123@outlook.com",
                 pass: "Cartownhess53"
-            },
-        })
-        let confirmationEmail=await transporter.sendMail({
-            from: ` "Kameer Hosein" <nodejstester@gmail.com>`,
-            to:"kameer-hosien@outlook.com",
-            subject:`${student.studentFullName} Has Signed Up For The Course!`,
-            text:`Hello Mr.Huggins, here are the details of the student that signed up for your defensive
+  }
+});
+
+var mailOptions = {
+  from: 'nodejstester123@outlook.com',
+  to: 'kameer-hosien@outlook.com',
+  subject: `${student.studentFullName} Has Signed Up For The Course!`,
+  text:`Hello Mr.Huggins, here are the details of the student that signed up for your defensive
             driving course: \n
             Student Name: ${student.studentFullName}\n
             Student Email: ${student.studentEmail}\n
             Student Phone: ${student.studentPhoneNumber}\n
             Best Regards`,
-        })
+};
 
-        console.log(`Message Sent: ${confirmationEmail.messageId}`);
-        console.log(res.data);
-    }
-).then((email)=>{
-      console.log(email);
-    })
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
+    console.log(data);
+  }
+})
 })
 
 app.post('/api/adminlogin',(req,res)=>{

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import "../styles/form.css";
 const Form=()=>{
 
-const [studentName,setStudentName]=useState("")
+const [studentFullName,setStudentFullName]=useState("")
 const [studentEmail,setStudentEmail]=useState("")
 const [studentPhoneNumber,setStudentPhoneNumber]=useState("")
 const [class_date,setClassDate]=useState("");
@@ -17,11 +17,10 @@ const submitAppointmentForm=async (e)=>{
 
     e.preventDefault();
 
-    const {data}=await axios.post("http://localhost:5000/api/signup",{studentName,studentEmail,studentPhoneNumber,class_date},
+    await axios.post("http://localhost:5000/api/signup",{studentFullName,studentEmail,studentPhoneNumber,class_date},
     setButtonText("Creating Your Appointment..."),setButtonColor("green"))
     .then(()=>{
-        console.log({data});
-        navigate("/");
+        navigate("/")
     })
 }
 
@@ -34,7 +33,7 @@ const submitAppointmentForm=async (e)=>{
         <form>
             <div className="form-group">
                 <label htmlFor="studentName">Student Name: </label>
-                <input type="text" className="form-control" id="studentName" name='studentName' placeholder='John Doe' onChange={(e)=>setStudentName(e.target.value)}/>
+                <input type="text" className="form-control" id="studentName" name='studentFullName' placeholder='John Doe' onChange={(e)=>setStudentFullName(e.target.value)}/>
             </div>
             <div className="form-group">
                 <label htmlFor="studentEmail">Student Email: </label>
