@@ -1,6 +1,6 @@
 import NavigationBar from "../components/NavigationBar";
 import AdminLoginForm from "../components/AdminLoginForm";
-
+import "../styles/adminPage.css"
 const AdminLogin=()=>{
     return(
         <div>

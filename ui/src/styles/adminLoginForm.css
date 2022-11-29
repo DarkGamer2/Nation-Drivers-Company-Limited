@@ -27,3 +27,7 @@ input{
     margin:0 auto;
     padding:10px;
 }
+
+.errorMessage{
+    text-align: center;
+}

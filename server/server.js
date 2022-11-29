@@ -5,11 +5,11 @@ const Student=require("./models/Student");
 const nodemailer=require("nodemailer");
 const cors=require("cors");
 const Admin=require("./models/Admin");
-const bcrypt=require("bcryptjs");
+const bcrypt=require("bcrypt");
 const passport = require("passport");
 const expressSession = require("express-session");
 const helmet=require("helmet");
-
+const cookieParser = require("cookie-parser");
 //MIDDLEWARE REQUIRED
 app.use(cors());
 app.use(express.json());
@@ -18,13 +18,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(expressSession({
   resave: false,
   saveUninitialized: true,
-  secret: 'bla bla bla' 
+  secret: 'secret_code' 
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
-require("./auth/passportConfig")(passport);
+require("./auth/passportConfig")(passport)
 
+app.use(cookieParser("secret_code"));
 app.use(helmet());
 
 
@@ -69,53 +70,40 @@ transporter.sendMail(mailOptions, function(error, info){
 })
 })
 
-app.post('/api/adminlogin',(req,res)=>{
-  passport.authenticate("local",(err,admin)=>{
-    if(err) throw err;
-    if(!admin){
-      res.send("No User Found");
-    }
-    else{
-      req.logIn(admin,err=>{
-        if(err) throw err;
-        res.send("Login Successful");
-        console.log(req.user);
-      })
-    }
-  })
-  (req,res,next)
+app.post('/api/adminlogin',(req,res,next)=>{
+ passport.authenticate("local",(err,admin,info)=>{
+  if(err) throw err;
+  if(!admin) res.send("No User Exists");
+
+  else{
+    req.logIn(admin,err=>{
+      if(err) throw err;
+      res.send("Successfully logged in");
+    })
+  }
+ })(req,res,next);
 })
 
 app.post('/api/adminsignup',(req,res)=>{
-  Admin.findOne({adminUserName:Admin.adminUserName},async (err,doc)=>{
-    if(err){
-      console.log(err.response.data);
-    }
-    else if(doc){
-      res.send("The Admin User Entered Already Exists");
-    }
-    else{
-      if(!doc){
-        const salt=await bcrypt.genSalt(10);
-        const password=req.body.adminPassword;
-        const hashedPassword=await bcrypt.hash(password,salt);
+ Admin.findOne({adminUserName:req.body.adminUserName},async(err,doc)=>{
+  if(err){
+    console.log(err);
+  }
 
-        const admin=new Admin({
-          adminUserName:req.body.adminUserName,
-        adminPassword:hashedPassword,
-          adminEmail:req.body.adminEmail
-        });
+  if(doc) res.send("User Already Registered");
 
-        admin.save((err,data)=>{
-          if(err){
-            console.log(err.response.data);
-          }
-        else{
-            console.log(`${data} was saved successfully`);
-        }});
-      }
-    }
-  })
+  if(!doc){
+    const hashedPassword=await bcrypt.hash(req.body.adminPassword,10)
+
+    const newAdmin=new Admin({
+      adminUserName:req.body.adminUserName,
+      adminPassword:hashedPassword,
+    })
+
+    await newAdmin.save();
+    res.send("User Registered Successfully");
+  }
+ })
 });
 
 app.get("/api/admin",(req,res)=>{

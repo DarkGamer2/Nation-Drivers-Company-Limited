@@ -3,21 +3,24 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const AdminSignupForm=()=>{
 
-    const url="http://localhost:5000/api/adminsignup";
+    const APIURL="http://localhost:5000/api";
     const [adminUserName,setAdminUserName]=useState("")
     const [adminEmail,setAdminEmail]=useState("")
     const [adminPassword,setAdminPassword]=useState("")
     const [buttonColor,setButtonColor]=useState("blue");
     const [buttonText,setButtonText]=useState("Create Admin Account");
 
-    const data={adminUserName,adminEmail,adminPassword};
     const navigate=useNavigate();
 
     const handleSignup=async (e)=>{
         e.preventDefault();
 
         try {
-            const response=await axios.post(url,{data:data},setButtonColor("green"),
+            const response=await axios.post(`${APIURL}/adminsignup`,{
+                adminUserName: adminUserName,
+                adminEmail: adminEmail,
+                adminPassword: adminPassword
+            },setButtonColor("green"),
         setButtonText("Creating Account...")).then((res)=>{
             console.log(res.data);
         })

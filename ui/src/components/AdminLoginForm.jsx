@@ -10,23 +10,33 @@ const AdminLoginForm=()=>{
     const [buttonText,setButtonText]=useState("LOGIN");
     const [errorMessage,setErrorMessage]=useState("");
     const navigate=useNavigate();
-    const AdminAccount={adminUserName,adminPassword};
     
+    const APIURL="http://localhost:5000/api"
+
+    const errorHandling=()=>{
+         setButtonText(buttonText) 
+                setButtonColor(buttonColor)
+                return(
+                    <div className="alert alert-danger">
+                        <p>{setErrorMessage("Invalid Credentials")}</p>
+                    </div>
+                )
+    }
     const handleLogin=async(e)=>{
         e.preventDefault();
 
-        await axios.post("http://localhost:5000/api/login",AdminAccount,
-            setButtonText("LOGGING IN..."),setButtonColor("green")
-        ).then(()=>{
-            if(adminUserName===AdminAccount.adminUserName && adminPassword===AdminAccount.adminPassword){
-                navigate(`/${adminUserName}/dashboard`);
+       await axios.post(`${APIURL}/adminlogin`,{
+        adminUserName:adminUserName,
+        adminPassword:adminPassword,
+
+       },setButtonText("LOGGING IN..."),setButtonColor("green")).then((err)=>{
+           if(err){
+               setTimeout(errorHandling,3000);
             }
             else{
-                return (
-                    <p>{setErrorMessage("Invalid ID Number Or Password")}</p>
-                )
+                navigate("/dashboard")
             }
-        })
+       })
     }
 return (
     <section>
@@ -38,13 +48,13 @@ return (
                 </div>
                 <div className="form-group">
                     <label htmlFor="adminPassword">Admin Password: </label>
-                    <input type="text" name="adminPassword" className="form-control input-box" placeholder="****" onChange={(e)=>setAdminPassword(e.target.value)}/>
+                    <input type="password" name="adminPassword" className="form-control input-box" placeholder="****" onChange={(e)=>setAdminPassword(e.target.value)}/>
                 </div>
                 <div className="button-container">
                     <button type="submit" className="submit-button" style={{backgroundColor:buttonColor}} onClick={handleLogin}>{buttonText}</button>
                 </div>
                 <div className="error-message-container">
-                    <p>{errorMessage}</p>
+                    <p className="errorMessage">{errorMessage}</p>
                 </div>
             </form>
         </div>
