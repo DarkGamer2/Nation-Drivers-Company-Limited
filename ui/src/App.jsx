@@ -11,6 +11,8 @@ import About from './pages/About';
 import AdminLogin from './pages/AdminLogin';
 import AdminSignup from './pages/AdminSignup';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminSettings from './pages/AdminSettings';
+import RecordList from './components/AdminDashboard/RecordList';
 
 function App() {
   return (
@@ -26,7 +28,11 @@ function App() {
       <Route path="*" element={<NotFound/>}/>
       <Route path="adminlogin" element={<AdminLogin/>}/>
       <Route path="adminsignup" element={<AdminSignup/>}/>
-      <Route path="dashboard" element={<AdminDashboard/>}/>
+      <Route path="dashboard" element={<AdminDashboard/>}>
+        <Route path="records" element={<RecordList/>}/>
+        <Route path="settings" element={<AdminSettings/>}/>
+      </Route>
+      
      </Routes>
      </BrowserRouter>
     </div>

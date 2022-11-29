@@ -94,3 +94,36 @@ nav ul li:first-child {
     font-weight: bold;
     font-weight: 500;
 }
+
+.icon{
+  color:red;
+}
+.nav-icon{
+  display: none;
+}
+
+@media screen and (max-width: 768px){
+  .navbar{
+    z-index: 99;
+  }
+
+  .nav-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    width: 100%;
+    /* position: absolute; */
+    top:0;
+    left:0%;
+    align-items: stretch;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+  }
+  .nav-icon{
+    display: block;
+  }
+  .nav-menu.active{
+    left: 0%;
+  }
+}

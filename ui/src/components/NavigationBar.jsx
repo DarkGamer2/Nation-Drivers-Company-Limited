@@ -3,15 +3,25 @@ import Logo from "../images/logo.png";
 import "../styles/nav.css";
 import { FontAwesomeIcon } from "font-awesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const NavigationBar=()=>{
+  const [clicked,setClicked]=useState(false);
 
+  const handleClick=()=>{
+    setClicked(true);
+  }
     return(
          <section>
          <div className="nav-container">
-            <nav>
-                <ul>
+            <nav className="navbar">
+                <ul className={clicked?"nav-menu active":"nav-menu"}>
+                  <div className="nav-icon" onClick={handleClick}>
+                    <i className="icon nav-item">{clicked?<FontAwesomeIcon icon={faTimes}/>:<FontAwesomeIcon icon={faBars}/>}</i>
+                  </div>
                     <li className="nav-item"><img className="logo" src={Logo} alt="logo"/></li>
                    
                     <li className="nav-item">NATION DRIVERS COMPANY LIMITED</li>

@@ -122,8 +122,12 @@ app.get("/api/admin",(req,res)=>{
     res.send(req.admin);
 })
 
-app.put("/api/admin/resetpassword",(req,res)=>{
-
+app.put("/api/admin/resetpassword",async (req,res)=>{
+  await Admin.findOneAndUpdate({adminPassword:req.body.adminPassword},req.body.adminPassword).then(()=>{
+    Admin.findOne({_id:req.params.id}).then((admin)=>{
+      res.send(admin);
+    })
+  })
 })
 
 //DASHBOARD API ROUTING
@@ -138,8 +142,15 @@ app.get('/api/admin/dashboard/viewrecords',(req,res)=>{
     })
 });
 
-app.get('/api/admin/dashboard/viewrecords/:id',(req,res)=>{
-
+app.get('/api/admin/dashboard/viewrecords/:id',async (req,res)=>{
+await Student.findOne({_id:req.params.id}.then((err,student)=>{
+  if(err){
+    console.error(err);
+  }
+  else{
+    console.log(`${student._id} retrieved`);
+  }
+}))
 }); 
 
 app.delete('/api/admin/dashboard/viewrecords/:id',async (req,res)=>{
