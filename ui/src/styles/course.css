@@ -20,3 +20,45 @@ li{
 .course-name-subheader{
     text-align:center;
 }
+
+.ambulance{
+    float:left;
+    width:50%;
+    margin-left:10%;
+    margin-right:5%;
+}
+.image-container{
+     width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+
+.defensive{
+    float:left;
+    width:50%;
+    margin-left:10%;
+    margin-right:5%;
+}
+
+.exam{
+    width:50%;
+    margin-left:10%;
+    margin-right:5%;
+}
+
+.certificate{
+    width:50%;
+    margin-left:10%;
+    margin-right:5%;
+}
+
+.certifiedletter{
+    width:50%;
+    margin-left:10%;
+    margin-right:5%;
+}
+
+.certified-text{
+    text-align: center;
+}
+

@@ -1,6 +1,6 @@
 import {useState,useEffect} from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/adminLoginForm.css";
 
 const AdminLoginForm=()=>{
@@ -55,6 +55,9 @@ return (
                 </div>
                 <div className="error-message-container">
                     <p className="errorMessage">{errorMessage}</p>
+                </div>
+                <div className="create-account-container">
+                   <Link to ="adminsignup" style={{textDecoration:"none"}}><p className="createAccountText">Don't have an account? Create one!</p></Link>
                 </div>
             </form>
         </div>

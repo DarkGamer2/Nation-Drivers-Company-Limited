@@ -10,7 +10,7 @@ const DVDSComponent =()=>{
             </div>
         <div className="dvd-text">
             <p className="text">
-                Our local dvds are perfect for teaching road safety.
+                Our local dvds are perfect for teaching road safety. <b>$40.00 TTD</b>.
             </p>
         </div>
         </div>

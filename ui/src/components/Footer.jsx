@@ -1,5 +1,6 @@
 import React from 'react';
 import "../styles/footer.css";
+import { FontAwesomeIcon } from 'font-awesome';
 const Footer=()=>{
 
     return(
@@ -26,6 +27,7 @@ const Footer=()=>{
                         <div className="contact-container">
                             <p className='email-address footer-content'>Email: st_huggins@yahoo.com</p>
                         <p className='phone-number footer-content'>Phone Number: 868-296-3087</p>
+                         <p className='phone-number footer-content'><FontAwesomeIcon icon="fab fa-whatsapp" /> Number: 868-381-8145</p>
                         </div>
                     </div>
                </div>

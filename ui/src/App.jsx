@@ -13,6 +13,7 @@ import AdminSignup from './pages/AdminSignup';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminSettings from './pages/AdminSettings';
 import RecordList from './components/AdminDashboard/RecordList';
+import RoadSafety from './pages/RoadSafety';
 
 function App() {
   return (
@@ -24,14 +25,15 @@ function App() {
       <Route path ="services/dvds" element={<DVDS/>}/>
       <Route path="services/course" element={<Course/>}/>
       <Route path="services/signs" element={<Signs/>}/>
+      <Route path="services/roadsafety" element={<RoadSafety/>}/>
       <Route path="about" element={<About/>}/>
-      <Route path="*" element={<NotFound/>}/>
       <Route path="adminlogin" element={<AdminLogin/>}/>
       <Route path="adminsignup" element={<AdminSignup/>}/>
       <Route path="dashboard" element={<AdminDashboard/>}>
-        <Route path="records" element={<RecordList/>}/>
-        <Route path="settings" element={<AdminSettings/>}/>
+      <Route path="records" element={<RecordList/>}/>
+      <Route path="settings" element={<AdminSettings/>}/>
       </Route>
+      <Route path="*" element={<NotFound/>}/>
       
      </Routes>
      </BrowserRouter>

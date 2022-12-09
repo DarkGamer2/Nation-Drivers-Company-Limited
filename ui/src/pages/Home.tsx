@@ -7,6 +7,8 @@ import "../styles/home.css";
 import DVDImage from "../images/DVD.jpeg";
 import RoadSafetyCreed from '../components/RoadSafetyCreed';
 import GoSign from "../images/Go_Sign.jpg";
+import LocalPropectous from "../images/Local_Propectious-2.jpg";
+import EmailAdvertisement from "../images/Email_Advertisement.jpg";
 const Home=()=>{
 
   const navigate = useNavigate();
@@ -25,17 +27,25 @@ const Home=()=>{
     return(
        <div>
          <NavigationBar/>
+          <div className='certificate-section'>
+       <div className="container">
+         <h1 className='title'>CALLING ALL DRIVERS!</h1>
+       <div className="image-container">
+         <img src={EmailAdvertisement} className="advertisement-image center" alt="certificate"/>
+       </div>
          <section className='certificate-section'>
        <div className="container">
          <h1 className='title'>GET CERTIFIED TODAY!</h1>
        <div className="image-container">
-         <img src={CertificateImage} className="certificate-image center" alt="certificate"/>
+         <img src={CertificateImage} className="certificate-image certificate-propectous" alt="certificate"/>
+        <img src={LocalPropectous} className="local-image certificate-propectous" alt="local propectous"/>
        </div>
         <div className='certificate-description'>
           <p className='certificate-description-text'>
             Nation Drivers Company Limited will be offering Road Safety and Defensive Driving
             courses to the general public every Wednesday and Saturday from 9am to 12pm. Classes will be held at the
-            PTSC Mall in San Juan "Croisee". Certificates will be distributed to students immediately upon completion of the course.
+            PTSC Mall in San Juan "Croisee". Certificates will be distributed to students immediately upon completion of the course. The cost of the workshop
+            is <b>$350.00 TTD</b>.
           </p>
         </div>
         <div className="button-container">
@@ -50,7 +60,7 @@ const Home=()=>{
           </div>
           <div className="text-container">
             <span className="dvd-description-text">
-            <p>We also have local road safety DVD's on sale</p>
+            <p>We also have local road safety DVD's on sale. Starting at <b>$40.00 TTD</b>.</p>
           </span>
           </div>
           <div className="button-container">
@@ -76,6 +86,8 @@ const Home=()=>{
          </section>
         <Footer/>
        </div>
+      </div>
+      </div>
     )
 }
 
