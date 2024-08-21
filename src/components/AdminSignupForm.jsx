@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const AdminSignupForm=()=>{
 
-    const APIURL="http://localhost:5000/api";
+    const APIURL="https://nation-drivers-limited-api-production.up.railway.app/api";
     const [adminUserName,setAdminUserName]=useState("")
     const [adminEmail,setAdminEmail]=useState("")
     const [adminPassword,setAdminPassword]=useState("")

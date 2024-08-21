@@ -17,7 +17,7 @@ const submitAppointmentForm=async (e)=>{
 
     e.preventDefault();
 
-    await axios.post("http://localhost:5000/api/signup",{studentFullName,studentEmail,studentPhoneNumber,class_date},
+    await axios.post("https://nation-drivers-limited-api-production.up.railway.app/api/signup",{studentFullName,studentEmail,studentPhoneNumber,class_date},
     setButtonText("Creating Your Appointment..."),setButtonColor("green"))
     .then(()=>{
         navigate("/")
