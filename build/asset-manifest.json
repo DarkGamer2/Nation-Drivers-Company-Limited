@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.25a025cd.css",
+    "main.js": "/static/js/main.b232b5da.js",
+    "static/js/453.63c4db86.chunk.js": "/static/js/453.63c4db86.chunk.js",
+    "static/media/2016_Fiat_Ducato_42_Maxi_West_Midlands_Ambulance_Service_3.0.jpg": "/static/media/2016_Fiat_Ducato_42_Maxi_West_Midlands_Ambulance_Service_3.0.e9a9928c9195cd5c138c.jpg",
+    "static/media/Go_Sign.jpg": "/static/media/Go_Sign.0245ee6ac31936388d85.jpg",
+    "static/media/Stop_Sign.jpg": "/static/media/Stop_Sign.a4c42aa06b63bb48105c.jpg",
+    "static/media/Expenses.jpeg": "/static/media/Expenses.1d49b091d2c858a21a72.jpeg",
+    "static/media/Email_Advertisement.jpg": "/static/media/Email_Advertisement.0d24d465c37aefc3cd53.jpg",
+    "static/media/Course_Exam.jpg": "/static/media/Course_Exam.2dd1d95c7d5c6453ca2d.jpg",
+    "static/media/Certification_Letter.jpg": "/static/media/Certification_Letter.286c418b312b50726dee.jpg",
+    "static/media/car_crash.png": "/static/media/car_crash.671fb9e1dd386d916e7d.png",
+    "static/media/Local_Propectious-2.jpg": "/static/media/Local_Propectious-2.919bae2c482221afe9f2.jpg",
+    "static/media/gm-9e90cd29-8417-4dcd-b248-1c09e74470bc-what-to-do-if-you-have-a-car-accident.jpg": "/static/media/gm-9e90cd29-8417-4dcd-b248-1c09e74470bc-what-to-do-if-you-have-a-car-accident.ae6667557409bfd30602.jpg",
+    "static/media/certificate.jpeg": "/static/media/certificate.a5741cead81d23e74186.jpeg",
+    "static/media/DDC Image.jpg": "/static/media/DDC Image.9f1948d6915aadc64db8.jpg",
+    "static/media/DVD.jpeg": "/static/media/DVD.9f075b27a7d1faf2431d.jpeg",
+    "static/media/logo.png": "/static/media/logo.d8fae2a994924b8c3043.png",
+    "index.html": "/index.html",
+    "main.25a025cd.css.map": "/static/css/main.25a025cd.css.map",
+    "main.b232b5da.js.map": "/static/js/main.b232b5da.js.map",
+    "453.63c4db86.chunk.js.map": "/static/js/453.63c4db86.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25a025cd.css",
+    "static/js/main.b232b5da.js"
+  ]
+}
