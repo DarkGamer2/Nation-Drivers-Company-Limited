@@ -21,11 +21,13 @@ const RecordList=()=>{
     <div>
       <h2>Records</h2>
         <div className="record-list">
-        {data.map((record,id)=>{
+       {loading ? <p>Loading...</p>:(
+        data.map((record,id)=>{
         return(
           <RecordCard  key={id} id={record._id} name={record.studentFullName}/>
         )
-      })}
+      }))}
+       
       </div>
     </div>
   )

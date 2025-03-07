@@ -3,11 +3,10 @@ import { FontAwesomeIcon } from "font-awesome";
 import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import CertificationLetter from "../images/Certification_Letter.jpg";
 import CourseExam from "../images/Course_Exam.jpg";
-import EmailAdvertisement from "../images/Email_Advertisement.jpg";
-import LocalPro from "../images/Local_Propectious-2.jpg";
+
 import Ambulance from "../images/2016_Fiat_Ducato_42_Maxi_West_Midlands_Ambulance_Service_3.0.jpg";
 import Defensive from "../images/DDC Image.jpg"
-import Expenses from "../images/Expenses.jpeg";
+
 import Certificate from "../images/certificate.jpeg";
 const CourseDetails=()=>{
 

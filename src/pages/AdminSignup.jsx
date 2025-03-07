@@ -1,5 +1,4 @@
 import AdminSignupForm from "../components/AdminSignupForm";
-import Footer from "../components/Footer";
 import NavigationBar from "../components/NavigationBar";
 
 const AdminSignup=()=>{
